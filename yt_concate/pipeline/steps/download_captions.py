@@ -18,7 +18,7 @@ class DownloadCaptions(Step):
         print('took', end-start, 'seconds')
 
     def download_subtitles(self, video_url, utils):
-        outtmpl = utils.get_caption_output_path(video_url)
+        outtmpl = utils.get_caption_filepath(video_url)
         ydl_opts = self.get_ydl_opts(outtmpl)
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:

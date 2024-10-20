@@ -11,7 +11,7 @@ class Utils:
         os.makedirs(CAPTIONS_DIR, exist_ok=True)
         os.makedirs(VIDEOS_DIR, exist_ok=True)
 
-    def get_caption_output_path(self, url):
+    def get_caption_filepath(self, url):
         return os.path.join(CAPTIONS_DIR, '%(id)s.%(ext)s')
 
     @staticmethod
@@ -19,7 +19,7 @@ class Utils:
         return url.split('watch?v=')[-1]
 
     def caption_file_exist(self, url):
-        path = self.get_caption_output_path(url)
+        path = self.get_caption_filepath(url)
         return os.path.exists(path) and os.path.getsize(path) > 0
 
     def get_video_list_filepath(self, channel_id):

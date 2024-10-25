@@ -55,7 +55,10 @@ class GetVideoList(Step):
         video_links = []
         with open(filepath, 'r') as f:
             for url in f:
-                video_links.append(url.strip())
+                url = url.strip()
+                if url == 'STOP':
+                    break
+                video_links.append(url)
         return video_links
 
 

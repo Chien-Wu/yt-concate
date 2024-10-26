@@ -54,9 +54,10 @@ class GetVideoList(Step):
     def read_file(self, filepath):
         video_links = []
         with open(filepath, 'r') as f:
-            for url in f:
+            for i, url in enumerate(f):
                 url = url.strip()
                 if url == 'STOP':
+                    print(f'Read {i} lines of urls, STOP')
                     break
                 video_links.append(url)
         return video_links

@@ -7,17 +7,20 @@ from yt_concate.pipeline.steps.search import Search
 from yt_concate.pipeline.steps.download_videos import DownloadVideos
 from yt_concate.pipeline.steps.edit_video import EditVideo
 from yt_concate.pipeline.steps.postflight import Postflight
+from settings import VIDEOS_DOWNLOAD_LIMIT
+from settings import SEARCH_WORD
+from settings import CHANNEL_ID
 
 from yt_concate.pipeline.pipeline import Pipeline
 from yt_concate.utils import Utils
 
-CHANNEL_ID = "UCiWXd0nmBjlKROwzMyPV-Nw"
+
 
 def main():
     inputs = {
         'channel_id': CHANNEL_ID,
-        'search_word': 'hiho～大家好，我是志祺！',
-        'limit': 20,
+        'search_word': SEARCH_WORD,
+        'limit': VIDEOS_DOWNLOAD_LIMIT,
     }
 
     steps = [

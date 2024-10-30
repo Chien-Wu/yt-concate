@@ -16,7 +16,7 @@ class YT:
         return url.split('watch?v=')[-1]
 
     def get_caption_filepath(self):
-        return os.path.join(CAPTIONS_DIR, f'{self.id}.vtt.zh-TW.vtt')
+        return os.path.join(CAPTIONS_DIR, f'{self.id}.vtt')
 
     def get_video_filepath(self):
         return os.path.join(VIDEOS_DIR, f'{self.id}.mp4')

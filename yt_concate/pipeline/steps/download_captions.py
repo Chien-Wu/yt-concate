@@ -1,5 +1,6 @@
 import yt_dlp
 import time
+import os
 
 from yt_concate.pipeline.steps.step import Step
 from yt_concate.settings import CAPTIONS_DIR
@@ -9,7 +10,7 @@ class DownloadCaptions(Step):
     def process(self, data, inputs, utils):
         start = time.time()
         for yt in data:
-            if utils.caption_file_exist(yt):
+            if utils.caption_file_exists(yt):
                 print(f'Use Existing caption file for {yt.url}')
                 continue
             try:
@@ -34,15 +35,17 @@ class DownloadCaptions(Step):
             print(f"Download caption for {video_url}")
             ydl.download([video_url])
 
+            downloaded_file = outtmpl + ".zh-TW.vtt"  # 假設 `yt_dlp` 加上了 .zh-TW.vtt
+            if os.path.exists(downloaded_file):
+                os.rename(downloaded_file, outtmpl)
+
 
     def get_ydl_opts(self, outtmpl):
         return {
             'skip_download': True,  # Skip video download, only download subtitles
-            'subtitlesformat': 'vtt',  # Use vtt subtitle format
             'writesubtitles': True,  # Download subtitles
             'subtitleslangs': ['zh-TW'],  # Language for Chinese Traditional subtitles
-            'outtmpl': outtmpl,  # File naming format using video ID
-            'subtitlesformat': 'best',  # Select the best available subtitles
+            'outtmpl': outtmpl,
             'quiet': True,  # Suppress output
             'no_warnings': True,  # Suppress warnings
         }

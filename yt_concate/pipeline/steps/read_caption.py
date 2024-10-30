@@ -3,7 +3,7 @@ from .step import Step
 class ReadCaption(Step):
     def process(self, data, inputs, utils):
         for yt in data:
-            if not utils.caption_file_exist(yt):
+            if not utils.caption_file_exists(yt):
                 continue
             captions = {}
             with open(yt.caption_filepath, 'r') as f:

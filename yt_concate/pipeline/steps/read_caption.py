@@ -16,7 +16,7 @@ class ReadCaption(Step):
                         time = line
                         continue
                     if record_next_line:
-                        captions[line] = time.split()
+                        captions[line] = time
                         record_next_line = False
             yt.captions = captions
 

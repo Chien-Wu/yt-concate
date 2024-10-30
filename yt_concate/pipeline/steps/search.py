@@ -16,6 +16,8 @@ class Search(Step):
                     time = captions[caption]
                     f = Found(yt, caption, time)
                     found.append(f)
+            if len(found) >= inputs['limit']:
+                break
 
         print(found)
         return found

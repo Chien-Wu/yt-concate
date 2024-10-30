@@ -34,3 +34,5 @@ class DownloadVideos(Step):
             except yt_dlp.utils.DownloadError as e:
                 print(f"Video download failed: {url}, error message: {e}")
 
+        return data
+

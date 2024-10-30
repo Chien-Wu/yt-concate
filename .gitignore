@@ -1,4 +1,6 @@
 yt_concate/downloads/
+outputs/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -13,7 +15,6 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-yt_concate/downloads/
 eggs/
 .eggs/
 lib/

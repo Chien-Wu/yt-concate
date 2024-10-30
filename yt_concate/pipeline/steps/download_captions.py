@@ -46,7 +46,7 @@ class DownloadCaptions(Step):
             'writesubtitles': True,  # Download subtitles
             'subtitleslangs': ['zh-TW'],  # Language for Chinese Traditional subtitles
             'outtmpl': outtmpl,
-            'quiet': True,  # Suppress output
+            'quiet': True,  # Suppress outputs
             'no_warnings': True,  # Suppress warnings
         }
 
